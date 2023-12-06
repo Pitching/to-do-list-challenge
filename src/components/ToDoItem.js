@@ -17,23 +17,22 @@ function ToDoItem() {
           <FaTrash size={30} />
         </div>
 
-        <div class="modal fade" id="EditNote" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Edit modal</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
-              </div>
+        <div className="modal fade" id="EditNote" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content px-3 py-2">
+            <label for="title" className="text-start">Title</label>
+            <input className="form-control" type="text" id="title" placeholder="Title" aria-label="default input example"></input>
+            <label for="description" className="text-start mt-3">Description</label>
+            <input className="form-control" type="text" id="description" placeholder="Description" aria-label="default input example"></input>
+            <label for="date" className="text-start mt-3">Date</label>
+            <input className="form-control" type="date" id="date" placeholder="Description" aria-label="default input example"></input>
+            <div className="d-flex justify-content-between mt-4">
+              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" className="btn btn-primary">Update</button>
             </div>
           </div>
         </div>
+      </div>
     </li>
   )
 }

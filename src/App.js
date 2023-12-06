@@ -10,6 +10,7 @@ function App() {
         <NewNoteModal />
         <ul className="list-group mt-5 align-items-center">
           <ToDoItem />
+          <ToDoItem />
         </ul>
       </div>
     </div>

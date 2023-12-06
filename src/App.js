@@ -8,7 +8,7 @@ function App() {
     <div className="d-flex justify-content-center mt-5">
       <div className="container text-center">
         <NewNoteModal />
-        <ul className="list-group mt-5">
+        <ul className="list-group mt-5 align-items-center">
           <ToDoItem />
         </ul>
       </div>

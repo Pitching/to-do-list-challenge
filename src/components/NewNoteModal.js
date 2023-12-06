@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Modal() {
+function NewNoteModal() {
   return (
     <section>
       <button type="button" className="btn btn-secondary w-50" data-bs-toggle="modal" data-bs-target="#NewNote">
@@ -28,4 +28,4 @@ function Modal() {
   )
 }
 
-export default Modal;
+export default NewNoteModal;

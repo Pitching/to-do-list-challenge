@@ -65,7 +65,7 @@ function ToDoItem({ note, deleteNote, setAllNotes }) {
           }
           <div className="d-flex align-items-center">
             <FaEdit className="mr-2" size={35} onClick={() => enableEdit()} />
-            <FaTrash size={30} onClick={() => deleteNote} />
+            <FaTrash size={30} onClick={deleteNote} />
           </div>
         </>)
         :

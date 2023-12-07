@@ -1,8 +1,9 @@
 .hover-element {
   cursor:grab;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hover-element:hover {
   transform: scale(105%);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.753);
 }

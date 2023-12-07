@@ -10,7 +10,8 @@ function App() {
   const [noteData, setNoteData] = useState({
     title: "",
     description: "",
-    date: ""
+    date: "",
+    category: ""
   })
 
   function deleteNote (id) {

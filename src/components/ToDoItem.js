@@ -16,20 +16,22 @@ function ToDoItem({ note, deleteNote, setAllNotes }) {
     setEditNoteData({
       title: note.title,
       description: note.description,
-      date: note.date
+      date: note.date,
+      category: note.category
     })
   }
 
   function updateNote(e) {
     e.preventDefault();
 
-    setAllNotes(prevState => prevState.map(obj => obj.id === note.id ? { ...obj, date: editNoteData.date, title: editNoteData.title, description: editNoteData.description } : obj));
+    setAllNotes(prevState => prevState.map(obj => obj.id === note.id ? { ...obj, date: editNoteData.date, title: editNoteData.title, description: editNoteData.description, category: editNoteData.category } : obj));
 
     setEditing(false);
     setEditNoteData({
       date: "",
       title: "",
-      description: ""
+      description: "",
+      category: ""
     })
     e.target.reset();
   }
@@ -50,6 +52,9 @@ function ToDoItem({ note, deleteNote, setAllNotes }) {
               <div className="mt-2">
                 <del>{note.date}</del>
               </div>
+              <div className>
+                <del>{note.category}</del>
+              </div>
             </div> :
             <div className="w-100" onClick={() => setCompleted(true)}>
               <h5>
@@ -60,6 +65,9 @@ function ToDoItem({ note, deleteNote, setAllNotes }) {
               </p>
               <div className="mt-2">
                 {note.date}
+              </div>
+              <div className>
+                {note.category}
               </div>
             </div>
           }
@@ -77,7 +85,20 @@ function ToDoItem({ note, deleteNote, setAllNotes }) {
             <input className="form-control" type="text" id="description" defaultValue={note.description} aria-label="default input example" onChange={(e) => setEditNoteData({ ...editNoteData, description: e.target.value })}></input>
             <label for="date" className="text-start mt-3">Date</label>
             <input className="form-control" type="date" id="date" defaultValue={note.date} aria-label="default input example" onChange={(e) => setEditNoteData({ ...editNoteData, date: e.target.value })}></input>
-
+            <div class="btn-group mt-4 w-100">
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" value={editNoteData.category}>
+                {editNoteData.category ? editNoteData.category : `Please select an option`}
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#" onClick={(e) => setEditNoteData({ ...editNoteData, category: e.target.innerText })}>Work</a></li>
+                <li><a class="dropdown-item" href="#" onClick={(e) => setEditNoteData({ ...editNoteData, category: e.target.innerText })}>Personal</a></li>
+                <li><a class="dropdown-item" href="#" onClick={(e) => setEditNoteData({ ...editNoteData, category: e.target.innerText })}>Home</a></li>
+                <li><a class="dropdown-item" href="#" onClick={(e) => setEditNoteData({ ...editNoteData, category: e.target.innerText })}>Family</a></li>
+                <li><a class="dropdown-item" href="#" onClick={(e) => setEditNoteData({ ...editNoteData, category: e.target.innerText })}>Social</a></li>
+                <li><a class="dropdown-item" href="#" onClick={(e) => setEditNoteData({ ...editNoteData, category: e.target.innerText })}>Health</a></li>
+                <li><a class="dropdown-item" href="#" onClick={(e) => setEditNoteData({ ...editNoteData, category: e.target.innerText })}>Hobby</a></li>
+              </ul>
+            </div>
           </div>
           <div className="d-flex justify-content-between mt-4">
             {editNoteData.title && editNoteData.description && editNoteData.date ? <button type="submit" className="btn btn-primary">Update</button> : null}

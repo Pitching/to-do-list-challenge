@@ -1,4 +1,5 @@
 .hover-element {
+  user-select: none;
   cursor:grab;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;

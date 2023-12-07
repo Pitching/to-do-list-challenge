@@ -11,7 +11,8 @@ function App() {
     title: "",
     description: "",
     date: "",
-    category: ""
+    category: "",
+    status: false
   })
   const [search, setSearch] = useState("");
 
@@ -34,7 +35,7 @@ function App() {
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(allNotes));
   }, [allNotes]);
-  
+
   return (
     <div className="d-flex justify-content-center">
       <div className="container text-center  mt-5">

@@ -3,14 +3,15 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { useState } from 'react';
 
 function ToDoItem({ note, deleteNote, setAllNotes }) {
+  console.log(note, "HERE!!!!!!");
   const [editNoteData, setEditNoteData] = useState({
     title: note.title,
     description: note.description,
     date: note.date,
-    category: note.category
+    category: note.category,
+    status: note.status
   });
   const [editing, setEditing] = useState(false);
-  const [completed, setCompleted] = useState(false);
 
   function enableEdit() {
     setEditing(true);
@@ -18,8 +19,18 @@ function ToDoItem({ note, deleteNote, setAllNotes }) {
       title: note.title,
       description: note.description,
       date: note.date,
-      category: note.category
+      category: note.category,
+      status: note.status
     })
+  }
+
+  function completeNote() {
+    setEditNoteData((prevEditNoteData) => {
+      const newStatus = !prevEditNoteData.status;
+      setAllNotes((prevState) =>
+        prevState.map((obj) => obj.id === note.id ? { ...obj, status: newStatus } : obj));
+      return { ...prevEditNoteData, status: newStatus };
+    });
   }
 
   function updateNote(e) {
@@ -32,7 +43,8 @@ function ToDoItem({ note, deleteNote, setAllNotes }) {
       date: "",
       title: "",
       description: "",
-      category: ""
+      category: "",
+      status: note.status
     })
     e.target.reset();
   }
@@ -42,8 +54,8 @@ function ToDoItem({ note, deleteNote, setAllNotes }) {
     <li className="hover-element col border-top justify-content-between text-start list-unstyled list-group-item w-50 d-flex mt-2">
       {!editing ?
         (<>
-          {completed ?
-            <div className="w-100" onClick={() => setCompleted(false)}>
+          {note.status ?
+            <div className="w-100" onClick={() => completeNote()}>
               <h5 className="text-success">
                 <del>{note.title}</del>
               </h5>
@@ -57,7 +69,7 @@ function ToDoItem({ note, deleteNote, setAllNotes }) {
                 <del>{note.category}</del>
               </div>
             </div> :
-            <div className="w-100" onClick={() => setCompleted(true)}>
+            <div className="w-100" onClick={() => completeNote()}>
               <h5>
                 {note.title}
               </h5>

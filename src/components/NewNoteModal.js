@@ -16,7 +16,8 @@ function NewNoteModal({ allNotes, setAllNotes, noteData, setNoteData }) {
       date: noteData.date,
       title: noteData.title,
       description: noteData.description,
-      category: noteData.category
+      category: noteData.category,
+      status: false
     }
 
     setAllNotes([...allNotes].concat(noteItem).reverse())
@@ -24,7 +25,8 @@ function NewNoteModal({ allNotes, setAllNotes, noteData, setNoteData }) {
       date: "",
       title: "",
       description: "",
-      category: ""
+      category: "",
+      status: false
     })
     e.target.reset();
   }

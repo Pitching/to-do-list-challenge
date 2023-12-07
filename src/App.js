@@ -8,8 +8,19 @@ function App() {
 
   const [allNotes, setAllNotes] = useState([]);
 
+  function retrieveNotes () {
+    let storedNotes = JSON.parse(localStorage.getItem("notes"));
+
+    if (storedNotes) {
+      setAllNotes(storedNotes);
+    }
+  }
+
   useEffect(() => {
-    localStorage.setItem("note", JSON.stringify(allNotes));
+    retrieveNotes();
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(allNotes));
   }, [allNotes]);
 
   return (
@@ -17,7 +28,11 @@ function App() {
       <div className="container text-center">
         <NewNoteModal setAllNotes={setAllNotes} allNotes={allNotes}/>
         <ul className="list-group mt-5 align-items-center">
-          <ToDoItem />
+          {
+            allNotes.map(note => (
+              <ToDoItem note={note}/>
+            ))
+          }
         </ul>
       </div>
     </div>

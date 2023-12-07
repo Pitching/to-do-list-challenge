@@ -9,6 +9,7 @@ function ToDoItem({ note, deleteNote, setAllNotes }) {
     date: note.date
   });
   const [editing, setEditing] = useState(false);
+  const [completed, setCompleted] = useState(false);
 
   function enableEdit() {
     setEditing(true);
@@ -38,20 +39,33 @@ function ToDoItem({ note, deleteNote, setAllNotes }) {
     <li className="col border-top justify-content-between text-start list-unstyled list-group-item w-50 d-flex">
       {!editing ?
         (<>
-          <div className="w-100">
-            <h5>
-              {note.title}
-            </h5>
-            <p className="my-0">
-              {note.description}
-            </p>
-            <div className="mt-2">
-              {note.date}
+          {completed ?
+            <div className="w-100" onClick={() => setCompleted(false)}>
+              <h5 >
+                <del>{note.title}</del>
+              </h5>
+              <p className="my-0">
+                <del>{note.description}</del>
+              </p>
+              <div className="mt-2">
+                <del>{note.date}</del>
+              </div>
+            </div> :
+            <div className="w-100" onClick={() => setCompleted(true)}>
+              <h5>
+                {note.title}
+              </h5>
+              <p className="my-0">
+                {note.description}
+              </p>
+              <div className="mt-2">
+                {note.date}
+              </div>
             </div>
-          </div>
+          }
           <div className="d-flex align-items-center">
-            <FaEdit className="mr-2" size={35} onClick={ () => enableEdit()} />
-            <FaTrash size={30} onClick={ () => deleteNote} />
+            <FaEdit className="mr-2" size={35} onClick={() => enableEdit()} />
+            <FaTrash size={30} onClick={() => deleteNote} />
           </div>
         </>)
         :

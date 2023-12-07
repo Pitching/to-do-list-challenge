@@ -34,10 +34,7 @@ function App() {
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(allNotes));
   }, [allNotes]);
-  useEffect(() => {
-
-  })
-
+  
   return (
     <div className="d-flex justify-content-center">
       <div className="container text-center  mt-5">

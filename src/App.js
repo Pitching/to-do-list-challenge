@@ -42,7 +42,7 @@ function App() {
     <div className="d-flex justify-content-center">
       <div className="container text-center  mt-5">
         <NewNoteModal setAllNotes={setAllNotes} allNotes={allNotes} noteData={noteData} setNoteData={setNoteData} />
-        <input className="mt-2 rounded" onChange={(e) => setSearch(e.target.value)}>
+        <input className="mt-3 rounded" onChange={(e) => setSearch(e.target.value)}>
         </input>
         <ul className="list-group mt-3 align-items-center">
           {filterNotes ?

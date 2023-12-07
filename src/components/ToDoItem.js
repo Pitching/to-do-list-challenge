@@ -43,16 +43,16 @@ function ToDoItem({ note, deleteNote, setAllNotes }) {
         (<>
           {completed ?
             <div className="w-100" onClick={() => setCompleted(false)}>
-              <h5 >
+              <h5 className="text-success">
                 <del>{note.title}</del>
               </h5>
-              <p className="my-0">
+              <p className="my-0 text-success">
                 <del>{note.description}</del>
               </p>
-              <div className="mt-2">
+              <div className="mt-2 text-success">
                 <del>{note.date}</del>
               </div>
-              <div className>
+              <div className="text-success">
                 <del>{note.category}</del>
               </div>
             </div> :

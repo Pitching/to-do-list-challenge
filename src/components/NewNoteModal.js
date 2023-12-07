@@ -61,7 +61,7 @@ function NewNoteModal({ allNotes, setAllNotes, noteData, setNoteData }) {
             </div>
             <div className="d-flex justify-content-between mt-4">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              {noteData.title && noteData.description && noteData.date ? <button type="submit" data-bs-dismiss="modal" className="btn btn-primary">Create</button> : null}
+              {noteData.title && noteData.description && noteData.date && noteData.category ? <button type="submit" data-bs-dismiss="modal" className="btn btn-primary">Create</button> : null}
             </div>
           </div>
         </div>

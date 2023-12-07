@@ -1,6 +1,6 @@
 import './ToDoItem.css'
 import { FaEdit, FaTrash } from "react-icons/fa";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 function ToDoItem({ note, deleteNote, setAllNotes }) {
   const [editNoteData, setEditNoteData] = useState({
@@ -36,7 +36,7 @@ function ToDoItem({ note, deleteNote, setAllNotes }) {
 
   return (
 
-    <li className="col border-top justify-content-between text-start list-unstyled list-group-item w-50 d-flex">
+    <li className="hover-element col border-top justify-content-between text-start list-unstyled list-group-item w-50 d-flex mt-2">
       {!editing ?
         (<>
           {completed ?

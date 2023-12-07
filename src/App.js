@@ -34,8 +34,8 @@ function App() {
   }, [allNotes]);
 
   return (
-    <div className="d-flex justify-content-center mt-5">
-      <div className="container text-center">
+    <div className="d-flex justify-content-center">
+      <div className="container text-center  mt-5">
         <NewNoteModal setAllNotes={setAllNotes} allNotes={allNotes} noteData={noteData} setNoteData={setNoteData}/>
         <ul className="list-group mt-5 align-items-center">
           {

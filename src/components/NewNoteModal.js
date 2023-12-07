@@ -25,8 +25,8 @@ function NewNoteModal({ allNotes, setAllNotes, noteData, setNoteData }) {
 
   return (
     <section>
-      <button type="button" className="btn btn-secondary w-50" data-bs-toggle="modal" data-bs-target="#NewNote">
-        Create new To-do Note
+      <button type="button" className="btn-lg btn-secondary w-50" data-bs-toggle="modal" data-bs-target="#NewNote">
+        Create New Note
       </button>
 
       <form className="modal fade" id="NewNote" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" onSubmit={addNote}>

@@ -1,3 +1,11 @@
+# Functionality
+
+Creating new note will bring up a modal to input the note information. All fields must be filled out before submission is allowed.
+Clicking on a created note will mark it as "done", striking out the text and turning it green.
+Clicking the edit button will allow for an update to the note to be made.
+Clicking the trash button will remove the note.
+Typing text in the search bar between the create new note button and created notes will filter through the description, title, date, and category of each note. Displaying only the filtered results that apply.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

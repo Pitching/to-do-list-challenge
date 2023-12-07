@@ -111,19 +111,3 @@ function ToDoItem({ note, deleteNote, setAllNotes }) {
 }
 
 export default ToDoItem;
-{/* <form className="modal fade" id="EditNote" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" onSubmit={updateNote}>
-      <div className="modal-dialog modal-dialog-centered">
-        <div className="modal-content px-3 py-2">
-          <label for="title" className="text-start">Title</label>
-          <input className="form-control" type="text" id="title" placeholder={note.title} aria-label="default input example" onChange={(e) => setEditNoteData({ ...noteData, title: e.target.value })} value={noteData.title}></input>
-          <label for="description" className="text-start mt-3">Description</label>
-          <input className="form-control" type="text" id="description" placeholder={note.description} aria-label="default input example" onChange={(e) => setEditNoteData({ ...noteData, description: e.target.value })} value={noteData.description}></input>
-          <label for="date" className="text-start mt-3">Date</label>
-          <input className="form-control" type="date" id="date" placeholder={note.date} aria-label="default input example" onChange={(e) => setEditNoteData({ ...noteData, date: e.target.value })} value={noteData.date}></input>
-          <div className="d-flex justify-content-between mt-4">
-            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            {noteData.title && noteData.description && noteData.date ? <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Update</button> : null}
-          </div>
-        </div>
-      </div>
-    </form> */}

@@ -8,15 +8,10 @@ function App() {
 
   const [allNotes, setAllNotes] = useState([]);
   const [noteData, setNoteData] = useState({
-    id: 0,
     title: "",
     description: "",
     date: ""
   })
-
-  function updateNote (id) {
-    const noteToUpdate = allNotes.filter(note => note.id === id);
-  }
 
   function deleteNote (id) {
     const notesToKeep = allNotes.filter(note => note.id !== id);
@@ -45,7 +40,7 @@ function App() {
         <ul className="list-group mt-5 align-items-center">
           {
             allNotes.map(note => (
-              <ToDoItem key={note.id} deleteNote={() => {deleteNote(note.id)}} note={note}/>
+              <ToDoItem key={note.id} deleteNote={() => {deleteNote(note.id)}} note={note} noteData={noteData} setNoteData={setNoteData} setAllNotes={setAllNotes}/>
             ))
           }
         </ul>

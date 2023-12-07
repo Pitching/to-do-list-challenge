@@ -2,11 +2,7 @@ import './ToDoItem.css'
 import { FaTrash } from "react-icons/fa";
 import { useEffect } from 'react';
 
-function ToDoItem({ note, deleteItem, updateItem }) {
-
-  useEffect(() => {
-    console.log(note, "YOU ARE HERE!");
-  }, []);
+function ToDoItem({ note, deleteNote, updateItem }) {
 
   return (
     <li className="col border-top justify-content-between text-start list-unstyled list-group-item w-50 d-flex">
@@ -21,11 +17,11 @@ function ToDoItem({ note, deleteItem, updateItem }) {
           {note.date}
         </div>
       </div>
-      <div className="d-flex align-items-center" onClick={deleteItem}>
+      <div className="d-flex align-items-center" onClick={deleteNote}>
         <FaTrash size={30} />
       </div>
 
-      <div className="modal fade" id="EditNote" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <form className="modal fade" id="EditNote" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content px-3 py-2">
             <label for="title" className="text-start">Title</label>
@@ -36,11 +32,11 @@ function ToDoItem({ note, deleteItem, updateItem }) {
             <input className="form-control" type="date" id="date" placeholder={note.date} aria-label="default input example"></input>
             <div className="d-flex justify-content-between mt-4">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary" onClick={updateItem}>Update</button>
+              <button type="submit" className="btn btn-primary" data-bs-dismiss="modal" onSubmit={updateItem}>Update</button>
             </div>
           </div>
         </div>
-      </div>
+      </form>
 
     </li>
   )

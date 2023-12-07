@@ -1,31 +1,30 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 
-function NewNoteModal({ allNotes, setAllNotes }) {  
-
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [date, setDate] = useState("");
+function NewNoteModal({ allNotes, setAllNotes, noteData, setNoteData }) {  
 
   useEffect(() => {
-    console.log(title, description, date, allNotes);
-  }, [title, description, date, allNotes]);
+    console.log(noteData, setNoteData);
+  }, [noteData]);
 
   function addNote(e) {
     e.preventDefault();
 
     const noteItem = {
-      date: date,
-      title: title,
-      desc: description,
+      id: noteData.id,
+      date: noteData.date,
+      title: noteData.title,
+      desc: noteData.description,
     }
 
     setAllNotes([...allNotes].concat(noteItem).reverse())
-    setTitle("");
-    setDescription("");
-    setDate("");
+    setNoteData({
+      id: noteData.id += 1,
+      date: "",
+      title: "",
+      desc: ""
+    })
     e.target.reset();
-    
   }
 
 
@@ -39,14 +38,14 @@ function NewNoteModal({ allNotes, setAllNotes }) {
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content px-3 py-2">
             <label for="title" className="text-start">Title</label>
-            <input className="form-control" type="text" id="title" placeholder="Title" aria-label="default input example" required onChange={(e) => setTitle(e.target.value)}></input>
+            <input className="form-control" type="text" id="title" placeholder="Title" aria-label="default input example" required onChange={(e) => setNoteData({...noteData, title: e.target.value})}></input>
             <label for="description" className="text-start mt-3">Description</label>
-            <input className="form-control" type="text" id="description" placeholder="Description" aria-label="default input example" required onChange={(e) => setDescription(e.target.value)}></input>
+            <input className="form-control" type="text" id="description" placeholder="Description" aria-label="default input example" required onChange={(e) => setNoteData({...noteData, description: e.target.value})}></input>
             <label for="date" className="text-start mt-3">Date</label>
-            <input className="form-control" type="date" id="date" placeholder="" aria-label="default input example" required onChange={(e) => setDate(e.target.value)}></input>
+            <input className="form-control" type="date" id="date" placeholder="" aria-label="default input example" required onChange={(e) => setNoteData({...noteData, date: e.target.value})}></input>
             <div className="d-flex justify-content-between mt-4">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              { title && description && date ? <button type="submit" data-bs-dismiss="modal" className="btn btn-primary">Create</button> : null }
+              { noteData.title && noteData.description && noteData.date ? <button type="submit" data-bs-dismiss="modal" className="btn btn-primary">Create</button> : null }
             </div>
           </div>
         </div>

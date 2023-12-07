@@ -4,10 +4,6 @@ import { v4 as uuidv4 } from 'uuid'
 
 function NewNoteModal({ allNotes, setAllNotes, noteData, setNoteData }) {
 
-  useEffect(() => {
-    console.log(noteData);
-  }, [noteData])
-
   function addNote(e) {
     e.preventDefault();
 

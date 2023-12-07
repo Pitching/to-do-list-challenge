@@ -3,7 +3,6 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { useState } from 'react';
 
 function ToDoItem({ note, deleteNote, setAllNotes }) {
-  console.log(note, "HERE!!!!!!");
   const [editNoteData, setEditNoteData] = useState({
     title: note.title,
     description: note.description,

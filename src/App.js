@@ -40,7 +40,11 @@ function App() {
         <ul className="list-group mt-5 align-items-center">
           {
             allNotes.map(note => (
-              <ToDoItem key={note.id} deleteNote={() => {deleteNote(note.id)}} note={note} noteData={noteData} setNoteData={setNoteData} setAllNotes={setAllNotes}/>
+              <ToDoItem 
+              key={note.id} 
+              deleteNote={() => {deleteNote(note.id)}} 
+              note={note}
+              setAllNotes={setAllNotes}/>
             ))
           }
         </ul>

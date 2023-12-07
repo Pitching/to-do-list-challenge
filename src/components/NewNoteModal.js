@@ -20,11 +20,12 @@ function NewNoteModal({ allNotes, setAllNotes }) {
       desc: description,
     }
 
-    setAllNotes([...allNotes].concat(noteItem))
+    setAllNotes([...allNotes].concat(noteItem).reverse())
     setTitle("");
     setDescription("");
     setDate("");
     e.target.reset();
+    
   }
 
 
@@ -45,7 +46,7 @@ function NewNoteModal({ allNotes, setAllNotes }) {
             <input className="form-control" type="date" id="date" placeholder="" aria-label="default input example" required onChange={(e) => setDate(e.target.value)}></input>
             <div className="d-flex justify-content-between mt-4">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" className="btn btn-primary">Create</button>
+              { title && description && date ? <button type="submit" data-bs-dismiss="modal" className="btn btn-primary">Create</button> : null }
             </div>
           </div>
         </div>

@@ -2,11 +2,15 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NewNoteModal from './components/NewNoteModal';
 import ToDoItem from './components/ToDoItem';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
 
   const [allNotes, setAllNotes] = useState([]);
+
+  useEffect(() => {
+    localStorage.setItem("note", JSON.stringify(allNotes));
+  }, [allNotes]);
 
   return (
     <div className="d-flex justify-content-center mt-5">

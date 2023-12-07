@@ -6,7 +6,8 @@ function ToDoItem({ note, deleteNote, setAllNotes }) {
   const [editNoteData, setEditNoteData] = useState({
     title: note.title,
     description: note.description,
-    date: note.date
+    date: note.date,
+    category: note.category
   });
   const [editing, setEditing] = useState(false);
   const [completed, setCompleted] = useState(false);

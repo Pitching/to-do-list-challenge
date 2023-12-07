@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
-  const [allNotes, setAllNotes] = useState([]);
+  const [allNotes, setAllNotes] = useState(localStorage.getItem('notes') ?  JSON.parse(localStorage.getItem('notes')) : []);
   const [noteData, setNoteData] = useState({
     title: "",
     description: "",
@@ -18,21 +18,10 @@ function App() {
     setAllNotes(notesToKeep);
   }
 
-  function retrieveNotes () {
-    let storedNotes = JSON.parse(localStorage.getItem("notes"));
-
-    if (storedNotes) {
-      setAllNotes(storedNotes);
-    }
-  }
-
-  useEffect(() => {
-    retrieveNotes();
-  }, []);
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(allNotes));
   }, [allNotes]);
-
+  
   return (
     <div className="d-flex justify-content-center">
       <div className="container text-center  mt-5">
